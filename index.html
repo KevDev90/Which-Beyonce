@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Which Beyoncé?</title>
+  </head>
+
+
+  <body>
+    <div class ="first-page" id="Page1">
+    <header>
+      <button class ="menu-button" type="button"></button>
+      <p class = "header-title">Which Beyoncé?</p>
+      </header>
+    <input class= "player1" </input>
+    <input class= "player2" </input>
+    <p class = "player1txt">PLAYER 1</p>
+    <p class = "player2txt">PLAYER 2</p>
+    <a href="#" class= "play-button" onclick="return show('Page2','Page1');">Play Game</a>
+  </div>
+
+  <div class ="second-page" id="Page2" style="display:none">
+    <header>
+      <p class= "welcome-text">WELCOME PLAYER 1 NAME AND PLAYER 2 NAME!</p>
+      <p class= "the-goal-text">The goal of the game is to find all 5 pairs of cards as quickly as possible.<br> The player that finds the greatest numbers of pairs, wins. </p>
+      <p class= "to-begin-text">To begin playing, the player whose name is highlighted can click any <br> card in the card pile. It will flip over and reveal a picture of Beyonce. Click <br> another card. If they match, they will disappear and you will have com-<br>pleted a match! If they don't you'll have three seconds to look at them<br> before they flip back over. Then it's time for the other player to try! </p>
+      <p class= "after-text">After you play, you'll see the name of the final winner and how long it <br> took to win the game.</p>
+      <button class ="menu-button" type="button"></button>
+      <p class = "header-title">Which Beyoncé?</p>
+      </header>
+    <a href="#" class= "play-button2" onclick="return show('Page3','Page2');">Play Game</a>
+  </div>
+
+  <div class ="third-page" id="Page3" style="display:none">
+    <header>
+      <div class= "sidenav1">
+        <h3 class= "player-1-name">PLAYER 1 NAME</h3>
+        <p class= "top-player">#4 TOP PLAYER </p>
+        <hr class="hr1">
+        <p class= "matches1">MATCHES<br>THIS ROUND </p>
+        <p class= "num1"> 5 </p>
+        <hr class="hr2">
+        <h3 class= "game-wins">GAME WINS</h3>
+        <br>
+        <p class= "round1">ROUND 1</p>
+        <br>
+        <p class= "sec1">125.75 SECONDS</p>
+        <br>
+        <p class= "round2">ROUND 4</p>
+        <br>
+        <p class= "sec2">63.98 SECONDS</p>
+      </div>
+
+      <div class= "sidenav2">
+        <h3 class= "player-2-name">PLAYER 2 NAME</h3>
+        <p class= "top-player2">#4 TOP PLAYER </p>
+        <hr class="hr3">
+        <p class= "matches2">MATCHES<br>THIS ROUND </p>
+        <p class= "num2"> 3 </p>
+        <hr class="hr4">
+        <h3 class= "game-wins2">GAME WINS</h3>
+        <br>
+        <p class= "round3">ROUND 2</p>
+        <br>
+        <p class= "sec3">231.7 SECONDS</p>
+        <br>
+        <p class= "round4">ROUND 4</p>
+        <br>
+        <p class= "sec4">98.2 SECONDS</p>
+        <br>
+        <p class= "round5">ROUND 5</p>
+        <br>
+        <p class= "sec5">106.34 SECONDS</p>
+      </div>
+    </div>
+
+       <button class ="menu-button" type="button"></button>
+      <p class = "header-title">Which Beyoncé?</p>
+      </header>
+
+    <a href="#" onclick="return show('Page4','Page3');">Show page 4</a>
+  </div>
+
+  <div class= "fourth-page" id="Page4" style="display:none">
+    <header>
+      <button class ="menu-button" type="button"></button>
+      <p class = "header-title">Which Beyoncé?</p>
+      </header>
+    Content of page 4
+    <a href="#" onclick="return show('Page1','Page2');"></a>
+  </div>
+
+<script src="main.js"></script>
+  </body>
+</html>

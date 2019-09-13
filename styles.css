@@ -1,0 +1,138 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.first-page {
+  height:100vh;
+  width: 100vw;
+  background-image: url(images/beyonce-COB-bw1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.second-page {
+  height:100vh;
+  width: 100vw;
+  background-image: url(images/beyonce-COB-bw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.third-page {
+  height:100vh;
+  width: 100vw;
+  background-color: #F5F7F6;
+}
+
+.fourth-page {
+  height:100vh;
+  width: 100vw;
+  background-image: url(images/beyonce-COB-bw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  width: 100vw;
+  height: 10%;
+  background-color: white;
+}
+
+.header-title {
+  position: absolute;
+  top: 0%;
+  left: 42%;
+  margin-right: -50%;
+  font-weight: 700;
+  font-size: 200%;
+}
+
+.menu-button {
+  background-image: url(images/nav-button.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:6%;
+  height: 9%;
+  position: absolute; top: 1%; left: 0%;
+}
+
+.play-button {
+  background-color: black;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  width: 66%;
+  position:absolute; top: 61%; left: 16%;
+}
+
+.play-button2 {
+  background-color: black;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  width: 66%;
+  position:absolute; top: 92%; left: 16%;
+}
+
+.player1 {
+  width: 23%;
+  height: 5%;
+  position: absolute; top: 33%; left: 16%
+}
+
+.player2 {
+  width: 23%;
+  height: 5%;
+  position: absolute; top: 33%; left: 62%;
+}
+
+.player1txt {
+  position: absolute; top: 37%; left: 16%;
+  font-size: 20px;
+}
+
+.player2txt {
+  position: absolute; top: 37%; left: 62%;
+  font-size: 20px;
+}
+
+.welcome-text {
+  font-weight: bolder;
+  font-size: 33px;
+  position: absolute; top: 22%; left: 20%;
+}
+
+.the-goal-text {
+  position: absolute; top: 32%; left: 16%;
+  font-size: 28px;
+}
+
+.to-begin-text {
+  position: absolute; top: 45%; left: 16%;
+  font-size: 28px;
+}
+
+.after-text {
+  position: absolute; top: 72%; left: 16%;
+  font-size: 28px;
+}
+
+.top-player2 {
+  display: none;
+}
+
+.sidenav1 {
+  background-color: black;
+  color: white;
+  width: 15%;
+  }
+
+.sidenav2 {
+  background-color: black;
+  color: white;
+  width: 15%;
+}
