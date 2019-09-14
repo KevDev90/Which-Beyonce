@@ -166,43 +166,43 @@ padding: 16px;
 text-align: center;
 }
 
-.card1 {
+#card1 {
   position:absolute; left: 19%; top: 16%;
 }
 
-.card2 {
+#card2 {
 position:absolute; left: 17%; top: 40%;
 }
 
-.card3 {
+#card3 {
 position:absolute; left: 19%; top: 65%;
 }
 
-.card4 {
+#card4 {
 position:absolute; left: 43%; top: 16%;
 }
 
-.card5 {
+#card5 {
 position:absolute; left: 33%; top: 40%;
 }
 
-.card6 {
+#card6 {
 position:absolute; left: 43%; top: 65%;
 }
 
-.card7 {
+#card7 {
 position:absolute; left: 50%; top: 40%;
 }
 
-.card8 {
+#card8 {
 position:absolute; left: 65%; top: 16%;
 }
 
-.card9 {
+#card9 {
 position:absolute; left: 68%; top: 40%;
 }
 
-.card10 {
+#card10 {
 position:absolute; left: 65%; top: 65%;
 }
 
