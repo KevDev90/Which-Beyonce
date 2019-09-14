@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width">
     <title>Which Beyoncé?</title>
   </head>
-
-
   <body>
+
     <div class ="first-page" id="Page1">
     <header>
       <button class ="menu-button" type="button"></button>
@@ -24,7 +23,7 @@
 
   <div class ="second-page" id="Page2" style="display:none">
     <header>
-      <p class= "welcome-text">WELCOME PLAYER 1 NAME AND PLAYER 2 NAME!</p>
+      <p class= "welcome-text">WELCOME <p class="player1-name"> PLAYER 1 NAME </p> <p class="player2-name"> AND PLAYER 2 NAME!</p></p>
       <p class= "the-goal-text">The goal of the game is to find all 5 pairs of cards as quickly as possible.<br> The player that finds the greatest numbers of pairs, wins. </p>
       <p class= "to-begin-text">To begin playing, the player whose name is highlighted can click any <br> card in the card pile. It will flip over and reveal a picture of Beyonce. Click <br> another card. If they match, they will disappear and you will have com-<br>pleted a match! If they don't you'll have three seconds to look at them<br> before they flip back over. Then it's time for the other player to try! </p>
       <p class= "after-text">After you play, you'll see the name of the final winner and how long it <br> took to win the game.</p>
@@ -75,13 +74,45 @@
         <br>
         <p class= "sec5">106.34 SECONDS</p>
       </div>
-    </div>
+      <section class="card-section">
+        <div class= "card card1">
+          <p>B</p>
+        </div>
+        <div class= "card card2">
+          <p>B</p>
+        </div>
+        <div class= "card card3">
+          <p>B</p>
+        </div>
+        <div class= "card card4">
+          <p>B</p>
+        </div>
+        <div class= "card card5">
+          <p>B</p>
+        </div>
+        <div class= "card card6">
+          <p>B</p>
+        </div>
+        <div class= "card card7">
+          <p>B</p>
+        </div>
+        <div class= "card card8">
+          <p>B</p>
+        </div>
+        <div class= "card card9">
+          <p>B</p>
+        </div>
+        <div class= "card card10">
+          <p>B</p>
+        </div>
+      </section>
+      <button class ="menu-button" type="button"></button>
+     <p class = "header-title">Which Beyoncé?</p>
+     </header>
 
-       <button class ="menu-button" type="button"></button>
-      <p class = "header-title">Which Beyoncé?</p>
-      </header>
+   <a href="#" class ="show-pg4" onclick="return show('Page4','Page3');">Show page 4</a>
+ </div>
 
-    <a href="#" onclick="return show('Page4','Page3');">Show page 4</a>
   </div>
 
   <div class= "fourth-page" id="Page4" style="display:none">
@@ -89,9 +120,17 @@
       <button class ="menu-button" type="button"></button>
       <p class = "header-title">Which Beyoncé?</p>
       </header>
-    Content of page 4
-    <a href="#" onclick="return show('Page1','Page2');"></a>
+
+      <h1 class="congrats-text"> CONGRATULATIONS, PLAYER 1 NAME WINS!</h1>
+      <p class="it-text">It took you 342.45 seconds.</p>
+      <p class="click-text">Click below to keep playing.</p>
+
+      <button type=button class="new-game">NEW GAME</button>
+      <button type=button class="rematch2">REMATCH</button>
+
+    <a href="#" class="rematch" onclick="return show('Page1','Page2');">NEW GAME</a>
   </div>
+
 
 <script src="main.js"></script>
   </body>

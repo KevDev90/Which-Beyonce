@@ -129,10 +129,134 @@ header {
   background-color: black;
   color: white;
   width: 15%;
+  height: 98vh;
+  position: absolute; top: 1%; left: 0%;
+  margin-top: 6%;
+  text-align: center;
   }
 
 .sidenav2 {
   background-color: black;
   color: white;
   width: 15%;
+  height: 98vh;
+  position: absolute; top: 1%; left: 85%;
+  margin-top: 6%;
+  text-align: center;
+}
+
+.num1 {
+  font-size: 36px;
+}
+
+.num2 {
+  font-size: 36px;
+}
+
+.card {
+margin: 5px;
+border: 1px black;
+background-color: #white;
+background-size: contain;
+background-repeat: no-repeat;
+height: 130px;
+width: 100px;
+box-shadow: 0 4px 8px 0 black;
+padding: 16px;
+text-align: center;
+}
+
+.card1 {
+  position:absolute; left: 19%; top: 16%;
+}
+
+.card2 {
+position:absolute; left: 17%; top: 40%;
+}
+
+.card3 {
+position:absolute; left: 19%; top: 65%;
+}
+
+.card4 {
+position:absolute; left: 43%; top: 16%;
+}
+
+.card5 {
+position:absolute; left: 33%; top: 40%;
+}
+
+.card6 {
+position:absolute; left: 43%; top: 65%;
+}
+
+.card7 {
+position:absolute; left: 50%; top: 40%;
+}
+
+.card8 {
+position:absolute; left: 65%; top: 16%;
+}
+
+.card9 {
+position:absolute; left: 68%; top: 40%;
+}
+
+.card10 {
+position:absolute; left: 65%; top: 65%;
+}
+
+.show-pg4 {
+  position:absolute; left: 43; top: 92%
+}
+
+.congrats-text {
+  font-weight: bolder;
+  font-size: 33px;
+  position: absolute; top: 22%; left: 25%;
+}
+
+.it-text {
+  font-weight: bolder;
+  font-size: 23px;
+  position: absolute; top: 42%; left: 40%;
+}
+
+.click-text {
+  font-size: 23px;
+  position: absolute; top: 62%; left: 41%;
+}
+
+.rematch {
+  background-color: black;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  width: 28%;
+  position:absolute; top: 61%; left: 66%;
+  display:none;
+}
+
+.new-game {
+  position:absolute; top: 75%; left: 13%;
+  background-color: black;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  width: 28%;
+}
+
+.rematch2 {
+  position:absolute; top: 75%; left: 62%;
+  background-color: black;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  width: 28%;
 }
