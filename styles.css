@@ -1,6 +1,19 @@
 * {
   font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box;
 }
+body {
+  height: 100vh;
+}
+img {
+  width: 100px;
+}
+
+/* .pages {
+  display: flex;
+} */
 
 .first-page {
   height:100vh;
@@ -16,12 +29,6 @@
   background-image: url(images/beyonce-COB-bw.png);
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.third-page {
-  height:100vh;
-  width: 100vw;
-  background-color: #F5F7F6;
 }
 
 .fourth-page {
@@ -130,19 +137,22 @@ header {
   color: white;
   width: 15%;
   height: 98vh;
-  position: absolute; top: 1%; left: 0%;
-  margin-top: 6%;
+  /* position: absolute; top: 1%; left: 0%; */
+  margin-bottom: 16%;
   text-align: center;
   }
 
 .sidenav2 {
   background-color: black;
+  flex: end;
   color: white;
   width: 15%;
   height: 98vh;
-  position: absolute; top: 1%; left: 85%;
-  margin-top: 6%;
+  /* position: absolute; top: 1%; left: 85%; */
+  margin-top: -71%;
   text-align: center;
+  float: right;
+
 }
 
 .num1 {
@@ -153,61 +163,69 @@ header {
   font-size: 36px;
 }
 
+.third-page {
+  height:100vh;
+  width: 100vw;
+  background-color: #F5F7F6;
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.memory-game {
+  display: flex;
+  width: 65%;
+  height: 680px;
+  border: 2px solid lime;
+  margin:auto;
+  position: absolute; left:17%; top:20%;
+  flex-wrap: wrap;
+}
+
 .card {
 margin: 5px;
 border: 1px black;
 background-color: #white;
-background-size: contain;
-background-repeat: no-repeat;
-height: 130px;
-width: 100px;
+height: 33%;
+width: 24%;
 box-shadow: 0 4px 8px 0 black;
 padding: 16px;
 text-align: center;
-}
-
-#card1 {
-  position:absolute; left: 19%; top: 16%;
-}
-
-#card2 {
-position:absolute; left: 17%; top: 40%;
-}
-
-#card3 {
-position:absolute; left: 19%; top: 65%;
-}
-
-#card4 {
-position:absolute; left: 43%; top: 16%;
-}
-
-#card5 {
-position:absolute; left: 33%; top: 40%;
-}
-
-#card6 {
-position:absolute; left: 43%; top: 65%;
-}
-
-#card7 {
-position:absolute; left: 50%; top: 40%;
-}
-
-#card8 {
-position:absolute; left: 65%; top: 16%;
-}
-
-#card9 {
-position:absolute; left: 68%; top: 40%;
+transform: scale(1);
+transform-style: preserve-3d;
+transition: transform .5s;
+display:inline-block;
+position: relative;
 }
 
 #card10 {
-position:absolute; left: 65%; top: 65%;
+  position: absolute; left: 76%; top: 34.5%;
+}
+
+.card:active {
+  transform: scale(.97);
+  transition: transform .2s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%
+  height: 100%
+  padding:20px;
+
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
 }
 
 .show-pg4 {
-  position:absolute; left: 43; top: 92%
+  position:absolute; left: 43; top: 115%
 }
 
 .congrats-text {
@@ -259,4 +277,12 @@ position:absolute; left: 65%; top: 65%;
   text-transform: uppercase;
   text-align: center;
   width: 28%;
+}
+
+#empty-name-error {
+  font-weight: bolder;
+  font-size: 36px;
+  display: none;
+  margin-left: 34%;
+  margin-top: 7%;
 }

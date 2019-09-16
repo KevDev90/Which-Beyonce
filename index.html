@@ -8,14 +8,16 @@
     <title>Which Beyoncé?</title>
   </head>
   <body>
+    <section class ="pages">
 
     <div class ="first-page" id="Page1">
     <header>
       <button class ="menu-button" type="button"></button>
       <p class = "header-title">Which Beyoncé?</p>
       </header>
-    <input class= "player1" </input>
-    <input class= "player2" </input>
+    <input type="text" maxlength="32" class= "player1" </input>
+    <input type="text" maxlength="32" class= "player2" </input>
+    <span class="error-message" id="empty-name-error">Please enter two names!</span>
     <p class = "player1txt">PLAYER 1</p>
     <p class = "player2txt">PLAYER 2</p>
     <a href="#" class= "play-button">Play Game</a>
@@ -35,7 +37,10 @@
 
   <div class ="third-page" id="Page3" style="display:none">
     <header>
-      <div class= "sidenav1">
+      <button class ="menu-button" type="button"></button>
+     <p class = "header-title">Which Beyoncé?</p>
+     </header>
+      <aside class= "sidenav1">
         <h3 class= "player-1-name">PLAYER 1 NAME</h3>
         <p class= "top-player">#4 TOP PLAYER </p>
         <hr class="hr1">
@@ -51,64 +56,71 @@
         <p class= "round2">ROUND 4</p>
         <br>
         <p class= "sec2">63.98 SECONDS</p>
-      </div>
+      </aside>
 
-      <div class= "sidenav2">
+      <aside class= "sidenav2">
         <h3 class= "player-2-name">PLAYER 2 NAME</h3>
-        <p class= "top-player2">#4 TOP PLAYER </p>
+          <p class= "top-player2">#4 TOP PLAYER </p>
         <hr class="hr3">
-        <p class= "matches2">MATCHES<br>THIS ROUND </p>
-        <p class= "num2"> 3 </p>
+          <p class= "matches2">MATCHES<br>THIS ROUND </p>
+          <p class= "num2"> 3 </p>
         <hr class="hr4">
-        <h3 class= "game-wins2">GAME WINS</h3>
+          <h3 class= "game-wins2">GAME WINS</h3>
         <br>
-        <p class= "round3">ROUND 2</p>
+          <p class= "round3">ROUND 2</p>
         <br>
-        <p class= "sec3">231.7 SECONDS</p>
+          <p class= "sec3">231.7 SECONDS</p>
         <br>
-        <p class= "round4">ROUND 4</p>
+          <p class= "round4">ROUND 4</p>
         <br>
-        <p class= "sec4">98.2 SECONDS</p>
+          <p class= "sec4">98.2 SECONDS</p>
         <br>
-        <p class= "round5">ROUND 5</p>
+          <p class= "round5">ROUND 5</p>
         <br>
-        <p class= "sec5">106.34 SECONDS</p>
-      </div>
-      <section class="card-section">
+          <p class= "sec5">106.34 SECONDS</p>
+      </aside>
+      <section class="memory-game">
         <div class= "card" id= "card1">
-          <p>B</p>
-        </div>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey1.jpg" alt="card1"/>
+          </div>
         <div class= "card" id= "card2">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey1.jpg" alt="card2"/>
         </div>
         <div class= "card" id= "card3">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey2.jpg" alt="card3"/>
         </div>
         <div class= "card" id= "card4">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey2.jpg" alt="card4"/>
         </div>
         <div class= "card" id= "card5">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey3.jpeg" alt="card5"/>
         </div>
         <div class= "card" id= "card6">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey3.jpeg" alt="card6"/>
         </div>
         <div class= "card" id= "card7">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey4.jpg" alt="card7"/>
         </div>
         <div class= "card" id= "card8">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey4.jpg" alt="card8"/>
         </div>
         <div class= "card" id= "card9">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey5.jpg" alt="card9"/>
         </div>
         <div class= "card" id= "card10">
-          <p>B</p>
+          <p class="back-face"> B </p>
+          <img class="front-face" src="images/bey5.jpg" alt="card10"/>
         </div>
       </section>
-      <button class ="menu-button" type="button"></button>
-     <p class = "header-title">Which Beyoncé?</p>
-     </header>
 
    <a href="#" class ="show-pg4" onclick="return show('Page4','Page3');">Show page 4</a>
  </div>
@@ -130,8 +142,10 @@
 
     <a href="#" class="rematch" onclick="return show('Page1','Page2');">NEW GAME</a>
   </div>
+</section>
 
 
 <script src="main.js"></script>
+<script src="deck.js" charset="utf-8"></script>
   </body>
 </html>
