@@ -197,6 +197,18 @@ display:inline-block;
 position: relative;
 }
 
+/* #card4 {
+  position: absolute; left: 35%; top: 34.5%;
+}
+
+#card5 {
+  position: absolute; left: 50%; top: 34.5%;
+}
+
+#card6 {
+  position: absolute; left: 65%; top: 34.5%;
+} */
+
 #card10 {
   position: absolute; left: 76%; top: 34.5%;
 }

@@ -10,13 +10,6 @@ var cards = document.querySelectorAll(".card");
 var player1Input = document.querySelector('.player1');
 var player2Input = document.querySelector('.player2');
 
-function
-
-function startGame() {
-
-
-}
-
 
 function show(shown, hidden) {
   document.getElementById(shown).style.display='inline-block';
