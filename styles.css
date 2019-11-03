@@ -8,12 +8,12 @@ body {
   height: 100vh;
 }
 img {
-  width: 100px;
+  width: 130px;
+  height: 180px;
+  margin: auto;
+  margin-left: -7px;
+  padding-bottom: 60px;
 }
-
-/* .pages {
-  display: flex;
-} */
 
 .first-page {
   height:100vh;
@@ -100,11 +100,13 @@ header {
 .player1txt {
   position: absolute; top: 37%; left: 16%;
   font-size: 20px;
+  margin-top: 15px;
 }
 
 .player2txt {
   position: absolute; top: 37%; left: 62%;
   font-size: 20px;
+  margin-top: 15px;
 }
 
 .welcome-text {
@@ -174,11 +176,11 @@ header {
 .memory-game {
   display: flex;
   width: 65%;
-  height: 680px;
-  border: 2px solid lime;
+  height: 580px;
   margin:auto;
-  position: absolute; left:17%; top:20%;
+  position: absolute; left:17%; top:12%;
   flex-wrap: wrap;
+  margin-bottom: 75px;
 }
 
 .card {
@@ -188,29 +190,96 @@ background-color: #white;
 height: 33%;
 width: 24%;
 box-shadow: 0 4px 8px 0 black;
-padding: 16px;
+padding-bottom: 16px;
 text-align: center;
-transform: scale(1);
+/* transform: scale(1);
 transform-style: preserve-3d;
-transition: transform .5s;
+transition: transform .5s; */
 display:inline-block;
 position: relative;
 }
 
-/* #card4 {
-  position: absolute; left: 35%; top: 34.5%;
+.card-1 {
+  transform: translateX(100%) rotateZ(10deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-right: 75px;
 }
 
-#card5 {
-  position: absolute; left: 50%; top: 34.5%;
+.card-2 {
+  transform: translate(100%, -15px) rotateZ(-20deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-right: 75px;
 }
 
-#card6 {
-  position: absolute; left: 65%; top: 34.5%;
-} */
+.card-3 {
+  transform: translateX(100%);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
 
-#card10 {
-  position: absolute; left: 76%; top: 34.5%;
+
+.card-4 {
+  transform: translateY(-10px) rotateZ(-25deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-top: 35px;
+}
+
+.card-5 {
+  transform: translateY(30px) rotateZ(5deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-top: 35px;
+}
+
+.card-6 {
+  transform: rotateZ(-5deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-top: 35px;
+}
+
+.card-7 {
+  transform: translateY(50px) rotateZ(25deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-right: 75px;
+  margin-top: 35px;
+}
+
+.card-8 {
+  transform: translate(60%, 15px) rotateZ(-2deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-right: 75px;
+  margin-top: 35px;
+}
+
+.card-9 {
+  transform: translate(100%, 20px) rotateZ(10deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  margin-top: 35px;
+}
+
+.card-10 {
+  transform: translate(100%, 30px) rotateZ(-2deg);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  position: absolute; left:76%; top:34%;
+  margin-top: 35px;
 }
 
 .card:active {
@@ -226,7 +295,7 @@ position: relative;
 .back-face {
   width: 100%
   height: 100%
-  padding:20px;
+  padding: 0px;
 
   border-radius: 5px;
   backface-visibility: hidden;
@@ -234,6 +303,12 @@ position: relative;
 
 .front-face {
   transform: rotateY(180deg);
+  padding-bottom: 90px;
+}
+
+.back-face {
+  text-align: center;
+  font-size: 72px;
 }
 
 .show-pg4 {
@@ -280,7 +355,7 @@ position: relative;
   width: 28%;
 }
 
-.rematch2 {
+.rematchbtn {
   position:absolute; top: 75%; left: 62%;
   background-color: black;
   color: white;
