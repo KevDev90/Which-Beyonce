@@ -1,27 +1,43 @@
 class Deck {
-  constructor(task) {
-    this.cards = [];
-    this.matchedCards= [];
-    this.selectedCards= [];
-    this.item = data;
-    this.complete = false;
-    this.id = Date.now();
+  constructor(deck) {
+    this.cards = deck.cards;
+    this.matchedCards = [];
     this.matches = 0;
+    this.selectedCards = [];
   }
 
-checkSelectedCards() {
-  var result = this.selectedCards[0].image === this.selectedCards[1].image;
-    return result;
-}
-
- moveToMatched(card1, card2) {
-    var index1 = this.selectedCards[0].id - 1;
-    var index2 = this.selectedCards[0].id - 1;
-    this.allCards[index1].match();
-    this.allCards[index2].match();
-    this.matches++;
-    var cards = {one: card1, two: card2};
-    this.matchedCards.push(cards);
+  checkMatched(player) {
+    if(this.selectedCards[0].matchId === this.selectedCards[1].matchId) {
+      this.matchedCards.push(this.selectedCards[0]);
+      this.matchedCards.push(this.selectedCards[1]);
+      this.matches++;
+      this.selectedCards = [];
+      return true;
+    } else {
+      return false;
+    }
   }
 
-}
+  resetCards() {
+    this.selectedCards = [];
+    this.matchedCards = [];
+    this.matches = 0;
+    for (var i = 0; i < this.cards.length; i++) {
+      this.cards[1].selected = false;
+    }
+  }
+
+
+shuffle(array) {
+    var length = array.length;
+    var temporaryLoc = null;
+    for (var i = 0; i < array.length; i++) {
+      var newIndex = Math.floor(Math.random() * length);
+      length--;
+      temporaryLoc = array[length];
+      array[length] = array[newIndex];
+      array[newIndex] = temporaryLoc;
+    }
+  }
+
+};
