@@ -26,6 +26,7 @@ newGameButton.addEventListener('click', newGame);
 gameBoard.addEventListener('click', runGame);
 rulesPlayButton.addEventListener('click', showRules);
 startPlayButton.addEventListener('click', clickStartPlayButton);
+rematchButton.addEventListener('click', rematch);
 
 function switchSections(hide, show) {
   hide.classList.add('hidden');
@@ -187,4 +188,18 @@ function hideMatched(event) {
     switchSections(gameScreen, gameOverPage);
     switchSections(player2TurnLabel, player1TurnLabel);
   }
+};
+
+function resetPlayers() {
+  players = [];
+};
+
+function rematch() {
+  instantiateCards();
+  decks.resetCards();
+  decks.shuffle(imgSrc);
+  showCards();
+  resetPlayers();
+  popupPlayerText.innerText = player1Name;
+  switchSections(gameOverPage, gameScreen);
 };
