@@ -17,6 +17,10 @@ var gameScreen = document.querySelector('.game-screen');
 var player1NameInput = document.querySelector('#start-player1-input');
 var player2NameInput = document.querySelector('#start-player2-input');
 var decks = null;
+var player1Minutes = document.querySelector('#player1-minutes');
+var player1Seconds = document.querySelector('#player1-seconds');
+var player2Minutes = document.querySelector('#player2-minutes');
+var player2Seconds = document.querySelector('#player2-seconds');
 
 newGameButton.addEventListener('click', newGame);
 gameBoard.addEventListener('click', runGame);
@@ -201,4 +205,8 @@ function rematch() {
   resetPlayers();
   popupPlayerText.innerText = player1Name;
   switchSections(gameOverPage, gameScreen);
+};
+
+function startTimer() {
+  timeStart = Date.now();
 };
