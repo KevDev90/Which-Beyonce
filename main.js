@@ -6,20 +6,16 @@ var player1Text = document.querySelectorAll('.player1-text');
 var player2Name = null;
 var player2Text = document.querySelectorAll('.player2-text');
 var gameOverPage = document.querySelector('.game-over-screen');
-var player1TurnLabel = document.querySelector('#player1-turn');
-var player2TurnLabel = document.querySelector('#player2-turn');
 var gameCards = document.querySelectorAll('.game-card');
 var players = [];
 var popupPlayerText = document.querySelector('.popup-player-text');
 var gameBoard = document.querySelector('#game-board');
-var popupStartButton = document.querySelector('.popup-start-button');
 var rematchButton = document.querySelector('#rematch-button');
-var startErrorMessage = document.querySelector('.start-error-message');
 var startPlayButton = document.querySelector('#start-play-button');
 var rulesScreen = document.querySelector('.rules-screen');
 var gameScreen = document.querySelector('.game-screen');
-var startPlayer1Input = document.querySelector('#start-player1-input');
-var startPlayer2Input = document.querySelector('#start-player2-input');
+var player1NameInput = document.querySelector('#start-player1-input');
+var player2NameInput = document.querySelector('#start-player2-input');
 var decks = null;
 
 newGameButton.addEventListener('click', newGame);
@@ -74,20 +70,21 @@ function showRules() {
 };
 
 function clickStartPlayButton() {
+  var startErrorMessage = document.querySelector('.start-error-message');
   var startScreen = document.querySelector('.start-screen');
-  if (startPlayer1Input.value.length && startPlayer2Input.value.length) {
-    insertNames(player1Text, startPlayer1Input.value.toUpperCase());
-    insertNames(player2Text, startPlayer2Input.value.toUpperCase());
+  if (player1NameInput.value.length && player2NameInput.value.length) {
+    insertNames(player1Text, player1NameInput.value.toUpperCase());
+    insertNames(player2Text, player2NameInput.value.toUpperCase());
     switchSections(startScreen, rulesScreen);
-    popupPlayerText.innerText = startPlayer1Input.value.toUpperCase();
+    popupPlayerText.innerText = player1NameInput.value.toUpperCase();
   } else {
     showErrorMessage(startErrorMessage);
   }
 };
 
 function clearInputs() {
-  startPlayer1Input.value = '';
-  startPlayer2Input.value = '';
+  player1NameInput.value = '';
+  player2NameInput.value = '';
 };
 
 function flipCardBack(event) {
@@ -159,6 +156,8 @@ function matchedOrNot(event) {
 };
 
 function hideMatched(event) {
+  var player1TurnLabel = document.querySelector('#player1-turn');
+  var player2TurnLabel = document.querySelector('#player2-turn');
   var player1MatchesNumber = document.querySelector('#game-aside-player1-matches-number');
   var player2MatchesNumber = document.querySelector('#game-aside-player2-matches-number');
   var isMatch = decks.checkMatched();
@@ -181,7 +180,7 @@ function hideMatched(event) {
   }
   if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
     switchSections(player1TurnLabel, player2TurnLabel);
-    popupPlayerText.innerText = startPlayer2Input.value.toUpperCase();
+    popupPlayerText.innerText = player2NameInput.value.toUpperCase();
     showPopup();
   }
   if (players[1] && players[1].matchCount === 5) {
