@@ -1,22 +1,17 @@
-class Card {
-  constructor() {
-  this.id = 0;
-  this.image = 'logo';
-  this.matchInfo = this.image;
-  this.matched = false;
-}
+class Cards {
+  constructor(card) {
+    this.cardId = parseInt(card.cardId);
+    this.matchId = card.matchId;
+    this.selected = false;
+  }
 
-getId(counter) {
-  this.id = counter;
-}
+  updateSelected(deck) {
+    this.selected = !this.selected;
+    if (this.selected === true) {
+      deck.selectedCards.push(this);
+    } else {
+      deck.selectedCards.splice(deck.selectedCards.indexOf(this), 1);
+    }
+  }
 
-match() {
-  this.matched = true;
-}
-
-
-
-
-
-
-}
+};
