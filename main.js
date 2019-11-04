@@ -106,6 +106,7 @@ function flipCard(event) {
   event.target.parentNode.classList.remove('no-match-animation');
   event.target.src = decks.cards[event.target.parentNode.dataset.id].matchId;
   event.target.parentNode.classList.add('flipped');
+  matchedOrNot(event)
 };
 
 function hideCard(event) {
@@ -143,4 +144,15 @@ function showPopup() {
   decks.shuffle(imgSrc);
   instantiateCards();
   showCards();
+};
+
+function matchedOrNot(event) {
+  for (var i = 0; i < decks.cards.length; i++) {
+    if (parseInt(event.target.parentNode.dataset.id) === decks.cards[i].cardId) {
+      decks.cards[i].updateSelected(decks);
+    }
+  }
+  if (decks.selectedCards.length === 2) {
+    hideMatched(event);
+  }
 };
