@@ -156,3 +156,35 @@ function matchedOrNot(event) {
     hideMatched(event);
   }
 };
+
+function hideMatched(event) {
+  var player1MatchesNumber = document.querySelector('#game-aside-player1-matches-number');
+  var player2MatchesNumber = document.querySelector('#game-aside-player2-matches-number');
+  var isMatch = decks.checkMatched();
+  if (isMatch) {
+    setTimeout(function() {
+      hideCard(event)
+    }, 1000);
+    if (players[0].matchCount < 5) {
+      players[0].matchCount++;
+    }
+    if (players[1]) {
+      players[1].matchCount++;
+      player2MatchesNumber.innerText = players[1].matchCount;
+    }
+    player1MatchesNumber.innerText = players[0].matchCount;
+  } else {
+    setTimeout(function() {
+      flipCardBack(event)
+    }, 3000);
+  }
+  if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
+    switchSections(player1TurnLabel, player2TurnLabel);
+    popupPlayerText.innerText = startPlayer2Input.value.toUpperCase();
+    showPopup();
+  }
+  if (players[1] && players[1].matchCount === 5) {
+    switchSections(gameScreen, gameOverPage);
+    switchSections(player2TurnLabel, player1TurnLabel);
+  }
+};
