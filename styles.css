@@ -308,6 +308,7 @@ button:hover,
   justify-content: center;
   text-align: center;
   width: 100%;
+  color: #FFF;
 }
 
 .game-over-timing {
