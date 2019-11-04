@@ -188,3 +188,7 @@ function hideMatched(event) {
     switchSections(player2TurnLabel, player1TurnLabel);
   }
 };
+
+function resetPlayers() {
+  players = [];
+};
