@@ -71,6 +71,7 @@ function newGame() {
 function showRules() {
   switchSections(rulesScreen, gameScreen);
   instantiateCards();
+  startTimer();
 };
 
 function clickStartPlayButton() {
@@ -123,7 +124,7 @@ function hideCard(event) {
 
 function hidePopup(playerName) {
   event.target.parentNode.classList.add('hidden');
-  var player = new Player({name: event.target.parentElement.children[0].children[0].innerText, startTime: Date.now()})
+  var player = new Player({name: event.target.parentElement.children[0].children[0].innerText, beginTime: Date.now()})
   players.push(player);
 };
 
@@ -183,11 +184,13 @@ function hideMatched(event) {
     }, 3000);
   }
   if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
+    computeTime(players[0].beginTime, 0)
     switchSections(player1TurnLabel, player2TurnLabel);
     popupPlayerText.innerText = player2NameInput.value.toUpperCase();
     showPopup();
   }
   if (players[1] && players[1].matchCount === 5) {
+    computeTime(players[1].beginTime, 1)
     switchSections(gameScreen, gameOverPage);
     switchSections(player2TurnLabel, player1TurnLabel);
   }
@@ -201,6 +204,7 @@ function rematch() {
   instantiateCards();
   decks.resetCards();
   decks.shuffle(imgSrc);
+  startTimer();
   showCards();
   resetPlayers();
   popupPlayerText.innerText = player1Name;
@@ -209,4 +213,9 @@ function rematch() {
 
 function startTimer() {
   timeStart = Date.now();
+};
+
+function computeTime(start, i) {
+  timeEnd = Date.now();
+  players[i].entireTime = (timeEnd - start)/1000;
 };
