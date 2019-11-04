@@ -136,3 +136,11 @@ function showCards() {
 function showErrorMessage(errorText) {
   errorText.classList.remove('hidden');
 };
+
+function showPopup() {
+  event.target.parentElement.parentElement.parentElement.children[0].classList.remove('hidden');
+  decks.resetCards();
+  decks.shuffle(imgSrc);
+  instantiateCards();
+  showCards();
+};
