@@ -249,3 +249,11 @@ function documentTime() {
 function showTopPlayers() {
   topPlayerBoard.classList.toggle('hidden');
 };
+
+function sendToStorage(key, value) {
+  localStorage.setItem(key, value);
+};
+
+function getFromStorage(key) {
+  return localStorage.getItem(key);
+};
