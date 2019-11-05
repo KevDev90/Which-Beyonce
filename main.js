@@ -193,6 +193,7 @@ function hideMatched(event) {
     computeTime(players[1].beginTime, 1)
     switchSections(gameScreen, gameOverPage);
     switchSections(player2TurnLabel, player1TurnLabel);
+    documentTime();
   }
 };
 
@@ -218,4 +219,21 @@ function startTimer() {
 function computeTime(start, i) {
   timeEnd = Date.now();
   players[i].entireTime = (timeEnd - start)/1000;
+};
+
+function documentTime() {
+  var winnerSpan = document.querySelector('.winner-text');
+  totalMinutes0 = Math.floor(players[0].entireTime/60);
+  totalSeconds0 = Math.round(players[0].entireTime%60);
+  player1Minutes.innerText = totalMinutes0;
+  player1Seconds.innerText = totalSeconds0;
+  totalMinutes1 = Math.floor(players[1].entireTime/60);
+  totalSeconds1 = Math.round(players[1].entireTime%60);
+  player2Minutes.innerText = totalMinutes1;
+  player2Seconds.innerText = totalSeconds1;
+  if (players[0].entireTime < players[1].entireTime) {
+    winnerSpan.innerText = players[0].name;
+  } else {
+    winnerSpan.innerText = players[1].name;
+  }
 };
