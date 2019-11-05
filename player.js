@@ -13,4 +13,8 @@ class Player {
     //players.sort(function(a,b){return a.bestTime- b.bestTime})
     //might need to flip a.bestTime;
   }
+
+  resetMatchCount() {
+    this.matchCount = 0;
+  }
 };

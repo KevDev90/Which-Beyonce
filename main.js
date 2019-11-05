@@ -22,10 +22,10 @@ var player1Seconds = document.querySelector('#player1-seconds');
 var player2Minutes = document.querySelector('#player2-minutes');
 var player2Seconds = document.querySelector('#player2-seconds');
 var topPlayerBoard = document.querySelector('.top-player-board');
-var topPlayerButton = document.querySelector('#top-player-button');
+var topPlayerButton = document.querySelector('#top-button');
 var topPlayerNames = document.querySelectorAll('.top-player-name');
 var topPlayerTimes = document.querySelectorAll('.top-player-time');
-var winners = getWinnersFromStorage() || [];
+// var winners = getWinnersFromStorage() || [];
 
 
 newGameButton.addEventListener('click', newGame);
@@ -209,7 +209,8 @@ function resetPlayers() {
   players = [];
 };
 
-function rematch(deck) {
+function rematch(deck, player) {
+  this.matchCount = 0;
   instantiateCards();
   decks.resetCards();
   decks.shuffle(imgSrc);
@@ -247,6 +248,7 @@ function documentTime() {
 };
 
 function showTopPlayers() {
+  console.log('yooo');
   topPlayerBoard.classList.toggle('hidden');
 };
 
