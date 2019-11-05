@@ -25,7 +25,7 @@ var topPlayerBoard = document.querySelector('.top-player-board');
 var topPlayerButton = document.querySelector('#top-button');
 var topPlayerNames = document.querySelectorAll('.top-player-name');
 var topPlayerTimes = document.querySelectorAll('.top-player-time');
-// var winners = getWinnersFromStorage() || [];
+var winners = getWinnersFromStorage() || [];
 
 
 newGameButton.addEventListener('click', newGame);
@@ -258,4 +258,26 @@ function sendToStorage(key, value) {
 
 function getFromStorage(key) {
   return localStorage.getItem(key);
+};
+
+function getWinnersFromStorage() {
+  if ('winnersStorage' in localStorage) {
+    return JSON.parse(localStorage.getItem('winnersStorage'));
+  }
+};
+
+function updateTopPlayerBoard() {
+  var parsedWinners = JSON.parse(localStorage.getItem('winnersStorage'));
+  if (winners.length < 5) {
+    for (var i = 0; i < parsedWinners.length; i++) {
+      topPlayerNames[i].innerText = parsedWinners[i].name;
+      topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
+    }
+  }
+  if (winners.length >= 5) {
+    for (var i = 0; i < 5; i++) {
+      topPlayerNames[i].innerText = parsedWinners[i].name;
+      topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
+    }
+  }
 };
