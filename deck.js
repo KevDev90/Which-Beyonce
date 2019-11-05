@@ -27,7 +27,6 @@ class Deck {
     }
   }
 
-
 shuffle(array) {
     var length = array.length;
     var temporaryLoc = null;

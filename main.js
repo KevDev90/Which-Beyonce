@@ -21,12 +21,19 @@ var player1Minutes = document.querySelector('#player1-minutes');
 var player1Seconds = document.querySelector('#player1-seconds');
 var player2Minutes = document.querySelector('#player2-minutes');
 var player2Seconds = document.querySelector('#player2-seconds');
+var topPlayerBoard = document.querySelector('.top-player-board');
+var topPlayerButton = document.querySelector('#top-player-button');
+var topPlayerNames = document.querySelectorAll('.top-player-name');
+var topPlayerTimes = document.querySelectorAll('.top-player-time');
+var winners = getWinnersFromStorage() || [];
+
 
 newGameButton.addEventListener('click', newGame);
 gameBoard.addEventListener('click', runGame);
 rulesPlayButton.addEventListener('click', showRules);
 startPlayButton.addEventListener('click', clickStartPlayButton);
 rematchButton.addEventListener('click', rematch);
+topPlayerButton.addEventListener('click', showTopPlayers);
 
 function switchSections(hide, show) {
   hide.classList.add('hidden');
@@ -123,6 +130,7 @@ function hideCard(event) {
 };
 
 function hidePopup(playerName) {
+  // declare var that does the event.target up here then
   event.target.parentNode.classList.add('hidden');
   var player = new Player({name: event.target.parentElement.children[0].children[0].innerText, beginTime: Date.now()})
   players.push(player);
@@ -190,7 +198,7 @@ function hideMatched(event) {
     showPopup();
   }
   if (players[1] && players[1].matchCount === 5) {
-    computeTime(players[1].beginTime, 1)
+    computeTime(players[1].beginTime, 1);
     switchSections(gameScreen, gameOverPage);
     switchSections(player2TurnLabel, player1TurnLabel);
     documentTime();
@@ -201,7 +209,7 @@ function resetPlayers() {
   players = [];
 };
 
-function rematch() {
+function rematch(deck) {
   instantiateCards();
   decks.resetCards();
   decks.shuffle(imgSrc);
@@ -236,4 +244,8 @@ function documentTime() {
   } else {
     winnerSpan.innerText = players[1].name;
   }
+};
+
+function showTopPlayers() {
+  topPlayerBoard.classList.toggle('hidden');
 };
