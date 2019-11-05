@@ -240,7 +240,7 @@ h3 {
 }
 
 #card5 {
-  transform: rotate(-10deg);
+  transform: rotate(-15deg);
 }
 
 #card6 {
@@ -330,6 +330,28 @@ button:hover,
   font-size: 1.8vw;
   height: 4vw;
   width: 40%;
+}
+
+.top-player-board {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 2vw;
+}
+
+.top-player {
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1vw;
+}
+
+.top-player-title {
+  margin: 0;
 }
 
 button:hover,
