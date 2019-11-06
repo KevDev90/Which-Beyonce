@@ -27,7 +27,7 @@ var topPlayerNames = document.querySelectorAll('.top-player-name');
 var topPlayerTimes = document.querySelectorAll('.top-player-time');
 var winners = getWinnersFromStorage() || [];
 
-
+window.addEventListener('load', pageLoad);
 newGameButton.addEventListener('click', newGame);
 gameBoard.addEventListener('click', runGame);
 rulesPlayButton.addEventListener('click', showRules);
@@ -85,6 +85,10 @@ function clickStartPlayButton() {
   var startErrorMessage = document.querySelector('.start-error-message');
   var startScreen = document.querySelector('.start-screen');
   if (player1NameInput.value.length && player2NameInput.value.length) {
+    sendToStorage('player1Name', startPlayer1Input.value);
+    sendToStorage('player2Name', startPlayer2Input.value);
+    player1Name = getFromStorage('player1Name').toUpperCase();
+    player2Name = getFromStorage('player2Name').toUpperCase();
     insertNames(player1Text, player1NameInput.value.toUpperCase());
     insertNames(player2Text, player2NameInput.value.toUpperCase());
     switchSections(startScreen, rulesScreen);
@@ -194,12 +198,14 @@ function hideMatched(event) {
   if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
     computeTime(players[0].beginTime, 0)
     switchSections(player1TurnLabel, player2TurnLabel);
+    updateWinners();
     popupPlayerText.innerText = player2NameInput.value.toUpperCase();
     showPopup();
   }
   if (players[1] && players[1].matchCount === 5) {
     computeTime(players[1].beginTime, 1);
     switchSections(gameScreen, gameOverPage);
+    updateWinners();
     switchSections(player2TurnLabel, player1TurnLabel);
     documentTime();
   }
@@ -280,4 +286,22 @@ function updateTopPlayerBoard() {
       topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
     }
   }
+};
+
+function pageLoad() {
+  updateTopPlayerBoard();
+};
+
+function sortWinners(){
+  winners.sort(function(a, b) {
+    return a.time - b.time;
+  })
+};
+
+function updateWinners(playerName, i) {
+  winners.push({name: playerName, time: players[i].totalTime});
+  sortWinners();
+  var stringifiedWinners = JSON.stringify(winners);
+  localStorage.setItem('winnersStorage', stringifiedWinners);
+  updateTopPlayerBoard();
 };
