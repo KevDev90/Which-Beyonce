@@ -38,5 +38,4 @@ shuffle(array) {
       array[newIndex] = temporaryLoc;
     }
   }
-
 };

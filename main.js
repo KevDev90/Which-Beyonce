@@ -31,7 +31,7 @@ window.addEventListener('load', pageLoad);
 newGameButton.addEventListener('click', newGame);
 gameBoard.addEventListener('click', runGame);
 rulesPlayButton.addEventListener('click', showRules);
-startPlayButton.addEventListener('click', clickStartPlayButton);
+startPlayButton.addEventListener('click', startPlay);
 rematchButton.addEventListener('click', rematch);
 topPlayerButton.addEventListener('click', showTopPlayers);
 
@@ -81,7 +81,7 @@ function showRules() {
   startTimer();
 };
 
-function clickStartPlayButton() {
+function startPlay() {
   var startErrorMessage = document.querySelector('.start-error-message');
   var startScreen = document.querySelector('.start-screen');
   if (player1NameInput.value.length && player2NameInput.value.length) {
@@ -134,7 +134,6 @@ function hideCard(event) {
 };
 
 function hidePopup() {
-  // declare var that does the event.target up here then
   event.target.parentNode.classList.add('hidden');
   var player = new Player({name: event.target.parentElement.children[0].children[0].innerText, beginTime: Date.now()})
   players.push(player);
@@ -175,7 +174,6 @@ function matchedOrNot(event) {
 function hideMatched(event) {
   var player1TurnLabel = document.querySelector('#player1-turn');
   var player2TurnLabel = document.querySelector('#player2-turn');
-  console.log(players);
   var isMatch = decks.checkMatched();
   if (isMatch) {
     setTimeout(function() {
@@ -195,9 +193,8 @@ function hideMatched(event) {
     }, 3000);
   }
   if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
-    computeTime(players[0].beginTime, 0)
+    computeTime(players[0].beginTime, 0);
     switchSections(player1TurnLabel, player2TurnLabel);
-    console.log(players);
     popupPlayerText.innerText = player2NameInput.value.toUpperCase();
     showPopup();
   }
@@ -256,7 +253,6 @@ function documentTime() {
 };
 
 function showTopPlayers() {
-  console.log('yooo');
   topPlayerBoard.classList.toggle('hidden');
 };
 
@@ -293,7 +289,6 @@ function sortWinners(){
 };
 
 function updateWinners(i) {
-  console.log(players[i], 'hey');
   winners.push({name: players[i].name, time: players[i].entireTime});
   sortWinners();
   var stringifiedWinners = JSON.stringify(winners);
@@ -313,5 +308,4 @@ function keepPlayers() {
   var name = document.querySelector('.player1-text')
   var player = new Player({name: name.innerText, beginTime: Date.now()})
   players.push(player);
-  console.log(players);
 }

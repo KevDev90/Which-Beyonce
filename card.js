@@ -13,5 +13,4 @@ class Cards {
       deck.selectedCards.splice(deck.selectedCards.indexOf(this), 1);
     }
   }
-
 };
