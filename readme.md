@@ -2,9 +2,9 @@ Learning Goals:
 Solidify and demonstrate my understanding of:
 Semantic HTML, DRY JavaScript, localStorage to persist data, Iterating through/filter DOM elements using for loops, Understanding the difference between the data model and how the data is displayed on the DOM, Match/recreate a UI and create a great UX.
 
-Overview
+Overview:
 Which Beyoncé? is a two-player game that replicates Concentration.
-Each player takes turn flipping over all the cards until they find all 5 matches. The goal is to find all the matches in a faster amount of time than the opposing player. A winning message is displayed after the game finishes with the name of the winner and the total amount of time in minutes and seconds that it took for the winning player to find all 5 matches. 
+Each player takes turn flipping over all the cards until they find all 5 matches. The goal is to find all the matches in a faster amount of time than the opposing player. A winning message is displayed after the game finishes with the name of the winner and the total amount of time in minutes and seconds that it took for the winning player to find all 5 matches. A top 5 leaderboard can also be accessed by clicking the hamburger button on the top of the screen. The leaderboard shows the top 5 previous players names and the time elapsed for each of those players to find all 5 matches. 
 
 Comp pictures:
 
