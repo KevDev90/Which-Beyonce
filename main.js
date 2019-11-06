@@ -85,8 +85,8 @@ function clickStartPlayButton() {
   var startErrorMessage = document.querySelector('.start-error-message');
   var startScreen = document.querySelector('.start-screen');
   if (player1NameInput.value.length && player2NameInput.value.length) {
-    sendToStorage('player1Name', startPlayer1Input.value);
-    sendToStorage('player2Name', startPlayer2Input.value);
+    sendToStorage('player1Name', player1NameInput.value);
+    sendToStorage('player2Name', player2NameInput.value);
     player1Name = getFromStorage('player1Name').toUpperCase();
     player2Name = getFromStorage('player2Name').toUpperCase();
     insertNames(player1Text, player1NameInput.value.toUpperCase());
@@ -133,7 +133,7 @@ function hideCard(event) {
   }
 };
 
-function hidePopup(playerName) {
+function hidePopup() {
   // declare var that does the event.target up here then
   event.target.parentNode.classList.add('hidden');
   var player = new Player({name: event.target.parentElement.children[0].children[0].innerText, beginTime: Date.now()})
@@ -156,7 +156,7 @@ function showErrorMessage(errorText) {
 function showPopup() {
   event.target.parentElement.parentElement.parentElement.children[0].classList.remove('hidden');
   decks.resetCards();
-  decks.shuffle(imgSrc);
+  // decks.shuffle(imgSrc);
   instantiateCards();
   showCards();
 };
@@ -198,14 +198,13 @@ function hideMatched(event) {
   if (players[0].matchCount === 5 && decks.matches === 5 && event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[5].classList.contains('hidden')) {
     computeTime(players[0].beginTime, 0)
     switchSections(player1TurnLabel, player2TurnLabel);
-    updateWinners();
+    console.log(players);
     popupPlayerText.innerText = player2NameInput.value.toUpperCase();
     showPopup();
   }
   if (players[1] && players[1].matchCount === 5) {
     computeTime(players[1].beginTime, 1);
     switchSections(gameScreen, gameOverPage);
-    updateWinners();
     switchSections(player2TurnLabel, player1TurnLabel);
     documentTime();
   }
@@ -215,11 +214,11 @@ function resetPlayers() {
   players = [];
 };
 
-function rematch(deck, player) {
-  this.matchCount = 0;
+function rematch() {
+  players.forEach(function(player){player.resetMatchCount()});
   instantiateCards();
   decks.resetCards();
-  decks.shuffle(imgSrc);
+  // decks.shuffle(imgSrc);
   startTimer();
   showCards();
   resetPlayers();
@@ -237,6 +236,7 @@ function computeTime(start, i) {
 };
 
 function documentTime() {
+  // future iterations slim down to make dynamic
   var winnerSpan = document.querySelector('.winner-text');
   totalMinutes0 = Math.floor(players[0].entireTime/60);
   totalSeconds0 = Math.round(players[0].entireTime%60);
@@ -248,8 +248,10 @@ function documentTime() {
   player2Seconds.innerText = totalSeconds1;
   if (players[0].entireTime < players[1].entireTime) {
     winnerSpan.innerText = players[0].name;
+    updateWinners(0);
   } else {
     winnerSpan.innerText = players[1].name;
+    updateWinners(1);
   }
 };
 
@@ -274,18 +276,18 @@ function getWinnersFromStorage() {
 
 function updateTopPlayerBoard() {
   var parsedWinners = JSON.parse(localStorage.getItem('winnersStorage'));
-  if (winners.length < 5) {
-    for (var i = 0; i < parsedWinners.length; i++) {
-      topPlayerNames[i].innerText = parsedWinners[i].name;
-      topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
-    }
-  }
-  if (winners.length >= 5) {
+  // if (winners.length < 5) {
+  //   for (var i = 0; i < parsedWinners.length; i++) {
+  //     topPlayerNames[i].innerText = parsedWinners[i].name;
+  //     topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
+  //   }
+  // }
+  // if (winners.length >= 5) {
     for (var i = 0; i < 5; i++) {
       topPlayerNames[i].innerText = parsedWinners[i].name;
       topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
     }
-  }
+  // }
 };
 
 function pageLoad() {
@@ -298,8 +300,9 @@ function sortWinners(){
   })
 };
 
-function updateWinners(playerName, i) {
-  winners.push({name: playerName, time: players[i].totalTime});
+function updateWinners(i) {
+  console.log(players[i], 'hey');
+  winners.push({name: players[i].name, time: players[i].entireTime});
   sortWinners();
   var stringifiedWinners = JSON.stringify(winners);
   localStorage.setItem('winnersStorage', stringifiedWinners);
