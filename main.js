@@ -156,7 +156,7 @@ function showErrorMessage(errorText) {
 function showPopup() {
   event.target.parentElement.parentElement.parentElement.children[0].classList.remove('hidden');
   decks.resetCards();
-  // decks.shuffle(imgSrc);
+  decks.shuffle(imgSrc);
   instantiateCards();
   showCards();
 };
@@ -175,8 +175,7 @@ function matchedOrNot(event) {
 function hideMatched(event) {
   var player1TurnLabel = document.querySelector('#player1-turn');
   var player2TurnLabel = document.querySelector('#player2-turn');
-  var player1MatchesNumber = document.querySelector('#game-aside-player1-matches-number');
-  var player2MatchesNumber = document.querySelector('#game-aside-player2-matches-number');
+  console.log(players);
   var isMatch = decks.checkMatched();
   if (isMatch) {
     setTimeout(function() {
@@ -184,12 +183,12 @@ function hideMatched(event) {
     }, 1000);
     if (players[0].matchCount < 5) {
       players[0].matchCount++;
+      updateMatchOnDom(players[0].matchCount, 0);
     }
     if (players[1]) {
       players[1].matchCount++;
-      player2MatchesNumber.innerText = players[1].matchCount;
+      updateMatchOnDom(5, players[1].matchCount);
     }
-    player1MatchesNumber.innerText = players[0].matchCount;
   } else {
     setTimeout(function() {
       flipCardBack(event)
@@ -216,12 +215,13 @@ function resetPlayers() {
 
 function rematch() {
   players.forEach(function(player){player.resetMatchCount()});
+  updateMatchOnDom(0,0);
   instantiateCards();
   decks.resetCards();
-  // decks.shuffle(imgSrc);
+  keepPlayers();
+  decks.shuffle(imgSrc);
   startTimer();
   showCards();
-  resetPlayers();
   popupPlayerText.innerText = player1Name;
   switchSections(gameOverPage, gameScreen);
 };
@@ -276,18 +276,10 @@ function getWinnersFromStorage() {
 
 function updateTopPlayerBoard() {
   var parsedWinners = JSON.parse(localStorage.getItem('winnersStorage'));
-  // if (winners.length < 5) {
-  //   for (var i = 0; i < parsedWinners.length; i++) {
-  //     topPlayerNames[i].innerText = parsedWinners[i].name;
-  //     topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
-  //   }
-  // }
-  // if (winners.length >= 5) {
     for (var i = 0; i < 5; i++) {
       topPlayerNames[i].innerText = parsedWinners[i].name;
       topPlayerTimes[i].innerText = Math.round(parsedWinners[i].time) + " seconds";
     }
-  // }
 };
 
 function pageLoad() {
@@ -308,3 +300,18 @@ function updateWinners(i) {
   localStorage.setItem('winnersStorage', stringifiedWinners);
   updateTopPlayerBoard();
 };
+
+function updateMatchOnDom(player1Score, player2Score) {
+  var player1MatchesNumber = document.querySelector('#game-aside-player1-matches-number');
+  var player2MatchesNumber = document.querySelector('#game-aside-player2-matches-number');
+  player1MatchesNumber.innerText = player1Score;
+  player2MatchesNumber.innerText = player2Score;
+}
+
+function keepPlayers() {
+  players = [];
+  var name = document.querySelector('.player1-text')
+  var player = new Player({name: name.innerText, beginTime: Date.now()})
+  players.push(player);
+  console.log(players);
+}
