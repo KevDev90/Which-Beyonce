@@ -398,3 +398,16 @@ button:hover,
 .hide-card {
   visibility: hidden;
 }
+
+@media only screen and (max-width: 1000px) {
+
+  .game-screen {
+    zoom: 135%;
+  }
+
+  .game-start-popup {
+    position: absolute;
+    right: 150px;
+  }
+
+}
